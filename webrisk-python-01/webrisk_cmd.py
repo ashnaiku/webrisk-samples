@@ -128,6 +128,7 @@ def do_submission(project_id: str, uri: str):
             'https://www.googleapis.com/auth/cloud-platform'])
     auth_req = google.auth.transport.requests.Request()
     credentials.refresh(auth_req)
+    print("auth_req :", auth_req)
     token_str = credentials.token
 
     bearer = "Bearer " + str(token_str)
@@ -153,11 +154,11 @@ def do_submission(project_id: str, uri: str):
         operation_id =  req.json()["name"].split('/')[3]
         # operation_id = operation_id_str
         print("operation_id : " + operation_id)
-        submission_api_status = "https://webrisk.googleapis.com/v1/projects/" + project_id + "/operations/" + operation_id+ "&key="  + key
-        print ("submission_api_status:" + submission_api_status)
-        req2 = requests.get(submission_api_status, headers=header_check_status)
-        
-        print(req2.json())
+        # submission_api_status = "https://webrisk.googleapis.com/v1/projects/" + project_id + "/operations/" + operation_id+ "&key="  + key
+        # print ("submission_api_status:" + submission_api_status)
+        # req2 = requests.get(submission_api_status, headers=header)
+        # print(req2.json())
+
         return req.json()
 
     except Exception as e:
@@ -193,34 +194,34 @@ def main():
     submission_uri = "https://www.phishingsite.com/"
 
     
-    # print(pyfiglet.figlet_format("Lookup API", width = 100 ))
-    # print("URL : " + lookup_uri)
-    # print(do_lookup(lookup_uri))    
+    print(pyfiglet.figlet_format("Lookup API", width = 100 ))
+    print("URL : " + lookup_uri)
+    print(do_lookup(lookup_uri))    
     
-    # input1 = input()
+    input1 = input()
     
     
-    # print(pyfiglet.figlet_format("Update API", width = 100 ))
-    # print(do_update())
-    # print("                 ")
-    # input1 = input()
+    print(pyfiglet.figlet_format("Update API", width = 100 ))
+    print(do_update())
+    print("                 ")
+    input1 = input()
 
-    # print(pyfiglet.figlet_format("Extended Coverage", width = 100 ))
-    # print("URL : " + extendedcoverage_uri)
-    # print(do_extendedcoverage(extendedcoverage_uri))
-    # print("                 ")
-    # input1 = input()
+    print(pyfiglet.figlet_format("Extended Coverage", width = 100 ))
+    print("URL : " + extendedcoverage_uri)
+    print(do_extendedcoverage(extendedcoverage_uri))
+    print("                 ")
+    input1 = input()
 
-    # print(pyfiglet.figlet_format("Evaluate API", width = 100 ))
-    # print("URL : " + evaluate_uri)
-    # print(do_evaluate(evaluate_uri)) 
-    # print(do_evaluate("http://testsafebrowsing.appspot.com/s/malware.html")) 
-    # print("                 ")
-    # input1 = input()
+    print(pyfiglet.figlet_format("Evaluate API", width = 100 ))
+    print("URL : " + evaluate_uri)
+    print(do_evaluate(evaluate_uri)) 
+    print(do_evaluate("http://testsafebrowsing.appspot.com/s/malware.html")) 
+    print("                 ")
+    input1 = input()
 
-    print(pyfiglet.figlet_format("Submission API", width = 100 ))
-    print("URL : " + submission_uri)
-    print(do_submission(project_id, submission_uri))
+    # print(pyfiglet.figlet_format("Submission API", width = 100 ))
+    # print("URL : " + submission_uri)
+    # print(do_submission(project_id, submission_uri))
 
 if __name__ == "__main__":
     main()  
