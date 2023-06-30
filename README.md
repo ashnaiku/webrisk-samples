@@ -20,3 +20,19 @@ Web Risk is a Google Cloud service that lets client applications check URLs agai
 - The Evaluate API to let your client applications evaluate the maliciousness of a URL. 
 
 - The Submission URLs lets your submit the URL that you suspect are unsafe to Safe Browsing for analysis, and asynchronously check the results of these submissions. 
+
+
+
+## How to install and run
+
+git clone https://github.com/ashnaiku/webrisk-samples
+
+cd webrisk-samples/
+cd webrisk-python-01/
+
+pip3 install -r requirements.txt 
+
+python3 webrisk_cmd.py 
+
+python3 app.py	
+http://localhost:5000
